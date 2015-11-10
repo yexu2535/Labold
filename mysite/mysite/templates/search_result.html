@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+    <title>搜索结果</title>
+</head>
+<p><font size="5">查询的作者为：<strong>{{ query }}</strong></font></p>
+
+{% if books %}       
+<div align="center">
+      <table border=1>
+	<captain ><font size="5">{{ query }}著有{{ books|length }}本书</font></captain>
+        {% for book in books %}
+	  <tr>
+        <td align="center" width="200">
+        <a href="/details/?q={{ book.ISBN }}">{{ book.title }}</a>
+        </td>
+        </tr>      
+        {% endfor %}    
+      </table>
+</div>
+{% else %}    
+    <p style="color: red;"><font size="5">找不到该作者所著书籍！</font></p> 
+{% endif %}
+<p><a href="/home/">返回首页</a></p>

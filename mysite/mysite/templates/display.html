@@ -1,0 +1,58 @@
+﻿<html>
+<head>
+    <title>图书详情</title>
+</head>
+
+<div>
+<fieldset>
+<legend><font size="5"><strong>{{ book.title }}</strong>的详细信息</font></legend>
+<table border=1 align="center">
+<tr>
+  <th align="center" width="200">书名</th>
+  <th align="center" width="300">作者</th>
+  <th align="center" width="200">出版商</th>
+  <th align="center" width="100">出版日期</th>
+  <th align="center" width="100">价格</th>
+  <th align="center" width="150">书号</th>
+</tr>
+
+<tr>
+  <td align="center" width="200">{{ book.title }}</td>
+  <td align="center" width="300">
+  {% for author in book.authors.all %}
+     {{ author.Name }}&nbsp;&nbsp;
+  {% endfor %}
+  </td>
+  <td align="center" width="200">{{ book.Publisher }}</td>
+  <td align="center" width="100">{{ book.PublishDate }}</td>
+  <td align="center" width="100">{{ book.price }}</td>
+  <td align="center" width="150">{{ book.ISBN }}</td>
+</tr>
+</table>
+</fieldset> 
+</div>
+<p>&nbsp;</p>
+<div>
+<fieldset>
+<legend><font size="5">作者的详细信息</font></legend>
+<table border=1 align="center">
+<tr>
+  <th align="center" width="200">姓名</th>
+  <th align="center" width="300">年龄</th>
+  <th align="center" width="200">国籍</th>
+</tr>
+
+{% for author in book.authors.all %}
+<tr>
+  <td align="center" width="100">{{ author.Name }}</td>
+  <td align="center" width="100">{{ author.Age }}</td>
+  <td align="center" width="150">{{ author.Country }}</td>
+</tr>
+{% endfor %}
+
+</table>
+</fieldset> 
+</div>
+<p>&nbsp;</p>
+<p align="center"><a href="/home/">返回首页</a></p>
+</html>

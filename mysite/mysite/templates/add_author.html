@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+    <title>添加作者</title>
+</head>
+{% if error %}
+    <p align="center" style="color: red;">请输入规范的信息！</p>
+{% endif %}
+
+<div align="center">
+<fieldset>
+<form action="" method="post">
+<table>
+    <captain><font size="5">请输入作者信息</font></captain>
+    {{ author.as_table }}
+</table>
+<input type="submit" value="添加作者">
+</form>
+</fieldset>
+</div>
+
+<p align="center"><a href="/home/">返回首页</a></p>
+
+</html>

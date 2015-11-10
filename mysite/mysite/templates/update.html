@@ -1,0 +1,23 @@
+﻿<html>
+<head>
+    <title>更改图书</title>
+</head>
+{% if error %}
+    <p align="center" style="color: red;">请输入规范的信息！</p>
+{% endif %}
+
+<div align="center">
+<fieldset>
+<form action="" method="post">
+    <captain><font size="5">请输入图书信息</font></captain>
+    <table>
+        {{ book.as_table }}
+    </table>
+    <input type="submit" value="更改">
+</form>
+<p align="center">没有可选作者请先添加作者，<a href="/add_author/">点此添加作者</a></p>
+</fieldset>
+</div>
+
+<p align="center"><a href="/home/">返回首页</a></p>
+</html>

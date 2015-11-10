@@ -1,0 +1,9 @@
+<form action="" method="post">
+    <table>
+        {{ book.as_table }}
+        <input type="submit" value="Update">
+    </table>
+</form>
+
+<p>{{ msg }}</p>
+<p><a href="/home/">Return Home</a></p>

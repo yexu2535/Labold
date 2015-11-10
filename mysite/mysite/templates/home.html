@@ -1,0 +1,41 @@
+﻿<html>
+<head>
+  <title>主页</title>
+</head>
+<p>
+    {% csrf_token %}
+    {% if error %}
+        <p style="color: red;">请输入想要搜索作者的关键字！</p>
+    {% endif %}
+    <fieldset>
+    <form action="/search/" method="post">
+        <legend>请输入作者关键字</legend>
+        <input type="text" name="q">        
+        <input type="submit" value="搜索">
+    </form>
+    </fieldset>
+</p>
+
+<p><a href="/add_book/">添加图书</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/add_author/">添加作者</a></p>
+<hr/>
+<body>
+<table border="1" align="center">
+<caption><font size="6">图书列表</font></caption>
+  <tr>
+    <th align="center" width="250">书名</th>
+    <th align="center" width="200">出版商</th>
+    <th align="center" width="100">价格</th>
+    <th align="center" colspan="2" width="150">操作</th>
+
+  </tr>
+{% for book in books %}
+  <tr>
+    <td align="center" width="250"><a href="/details/?q={{ book.ISBN }}">{{ book.title }}</a></td>
+    <td align="center" width="200">{{ book.Publisher }}</td>
+    <td align="center" width="100">{{ book.price }}</td>
+    <td align="center" width="75"><a href="/update/?q={{ book.ISBN }}">更新</a></td>
+    <td align="center" width="75"><a href="/delete/?q={{ book.ISBN }}">删除</a></td>
+  </tr>
+{% endfor %}
+</body>
+</html>
